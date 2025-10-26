@@ -9,3 +9,6 @@ git clone https://github.com/strunk23/python-projects.git
 cd <project_folder>/
 ```
 For further information please consult the README file of individual projects.
+
+## Project inspiration
+- task_cli: https://roadmap.sh/projects/task-tracker
