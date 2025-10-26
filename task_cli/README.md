@@ -15,7 +15,7 @@ First clone the repo and go the task_cli directory
 
 ```bash
 git clone https://github.com/strunk23/python-projects.git
-cd task_cli/
+cd python-projects/task_cli/
 ```
 
 You can now use the CLI by typing the following commands. 
