@@ -12,3 +12,4 @@ For further information please consult the README file of individual projects.
 
 ## Project inspiration
 - task_cli: https://roadmap.sh/projects/task-tracker
+- number_guessing_game: https://roadmap.sh/projects/number-guessing-game
