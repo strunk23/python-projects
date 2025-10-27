@@ -18,7 +18,7 @@ class Game:
     _guesses: int = 0
     _finished: bool = False
 
-    def _create_save_file(self) -> None:
+    def _open_save(self) -> Dict[str, str]:
         if not os.path.exists(self._SAVE_PATH) or os.stat(self._SAVE_PATH).st_size <= 38:
             save_structure: Dict[str, str] = {
                 "1": "0",
@@ -29,7 +29,6 @@ class Game:
             with open(self._SAVE_PATH, "w+") as f:
                 json.dump(save_structure, f, indent=4)
 
-    def _open_save(self) -> Dict[str, str]:
         with open(self._SAVE_PATH, "r") as f:
             data = json.load(f)
             return data

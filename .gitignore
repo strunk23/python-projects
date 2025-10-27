@@ -208,3 +208,4 @@ __marimo__/
 
 # project files
 task_cli/data.json
+number_guessing_game/score.json
