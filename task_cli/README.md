@@ -42,5 +42,4 @@ python task_cli.py list todo
 python task_cli.py list in-progress
 ```
 
-
 Project based on [roadmap.sh](https://roadmap.sh/projects/task-tracker)

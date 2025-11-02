@@ -22,5 +22,4 @@ Start the game by typing:
 python number_guessing_game.py
 ```
 
-
-Project based on https://roadmap.sh/projects/number-guessing-game
+Project based on [roadmap.sh](https://roadmap.sh/projects/number-guessing-game)

@@ -209,3 +209,6 @@ __marimo__/
 # project files
 task_cli/data.json
 number_guessing_game/score.json
+expense_tracker/data.json
+expense_tracker/export.csv
+expense_tracker/budget.json
