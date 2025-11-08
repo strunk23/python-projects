@@ -53,4 +53,4 @@ python expense_tracker.py budget --month 10 --amount 100
 python expense_tracker.py export --path /home/user/
 ```
 
-Project based on [roadmap.sh](https://roadmap.sh/projects/task-tracker)
+Project based on [roadmap.sh](https://roadmap.sh/projects/expense-tracker)

@@ -14,3 +14,4 @@ For further information please consult the README file of individual projects.
 - task_cli: https://roadmap.sh/projects/task-tracker
 - number_guessing_game: https://roadmap.sh/projects/number-guessing-game
 - expense_tracker: https://roadmap.sh/projects/expense-tracker
+- github_activity: https://roadmap.sh/projects/github-user-activity
