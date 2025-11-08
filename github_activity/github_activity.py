@@ -21,7 +21,7 @@ def persistent_cache():
         cache = {}
 
     keys = list(cache.keys())
-    if len(keys) > 2:
+    if len(keys) > 6:
         cache.pop(keys[0])
 
     def decorator(func):
