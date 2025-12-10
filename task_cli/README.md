@@ -22,7 +22,7 @@ You can now use the CLI by typing the following commands.
 
 ```bash
 # Add task
-python task_cli.py add Buy groceries
+python task_cli.py add "Buy groceries"
 # Outputs: Task added successfully with ID: 1
 
 # Update and delete
