@@ -44,38 +44,36 @@ def persistent_cache():
         return wrapper
     return decorator
 
-class Activity():
-    @persistent_cache()
-    def _get_activity(self, user: str) -> List[Dict]:
-        response = requests.get(f"https://api.github.com/users/{user}/events").json()
-        if isinstance(response, dict):
-            print(f"API error or the user {user} does not exist.")
-            sys.exit()
+@persistent_cache()
+def _get_activity(user: str) -> List[Dict]:
+    response = requests.get(f"https://api.github.com/users/{user}/events").json()
+    if isinstance(response, dict):
+        print(f"API error or the user {user} does not exist.")
+        sys.exit()
 
-        return response
-    
-    def activity(self, user: str) -> None:
-        activity_data = {}
-        data = self._get_activity(user)
+    return response
 
-        for event in data:
-            event_type = event.get("type")
-            event_repo = event.get("repo")
-            event_repo_id = event_repo.get("id")
-            event_repo_name = event_repo.get("name")
+def activity(user: str) -> None:
+    activity_data = {}
+    data = _get_activity(user)
 
-            if event_type not in activity_data:
-                activity_data[event_type] = {}
+    for event in data:
+        event_type = event.get("type")
+        event_repo = event.get("repo")
+        event_repo_id = event_repo.get("id")
+        event_repo_name = event_repo.get("name")
 
-            if event_repo_id not in activity_data[event_type]:
-                activity_data[event_type][event_repo_id] = {"name": event_repo_name, "count": 1}
-            else:
-                activity_data[event_type][event_repo_id]["count"] += 1
+        if event_type not in activity_data:
+            activity_data[event_type] = {}
 
+        if event_repo_id not in activity_data[event_type]:
+            activity_data[event_type][event_repo_id] = {"name": event_repo_name, "count": 1}
+        else:
+            activity_data[event_type][event_repo_id]["count"] += 1
 
-        for event, repos in activity_data.items():
-            for _, details in repos.items():
-                print(f"{event} {details.get('count')} times in {details.get('name')}")
+    for event, repos in activity_data.items():
+        for _, details in repos.items():
+            print(f"{event} {details.get('count')} times in {details.get('name')}")
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Github activity tool.")
@@ -85,10 +83,9 @@ def main() -> None:
     github_parser.add_argument("--user", "-u", type=str, required=True, help="User to get the activity from.")
 
     args = parser.parse_args()
-    activity = Activity()
 
     if args.command == "activity":
-        activity.activity(args.user)
+        activity(args.user)
 
 if __name__ == "__main__":
     main()
